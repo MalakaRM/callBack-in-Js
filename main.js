@@ -116,7 +116,7 @@ loadData((error,data)=>{
 
 
 //-------call back hell-> ex: 03----------
-let data;
+/*let data;
 
 const loadData = (url,callback)=>{
     const http = new XMLHttpRequest();
@@ -138,4 +138,61 @@ loadData('https://jsonplaceholder.typicode.com/comments',(error,data)=>{
    loadData('https://jsonplaceholder.typicode.com/posts',(error,data)=>{
    console.log(data);
     });
+});*/
+
+
+
+
+
+//-------Promise-> ex: 01----------
+/*let data;
+
+const loadData = (url)=>{
+    return new Promise((resolve,reject)=>{
+        const http = new XMLHttpRequest();
+    http.addEventListener('readystatechange', () => {
+    if (http.readyState==4 && http.status===200) {
+        resolve(JSON.parse(http.responseText)); // undefined = error නෑ, දෙවෙනියට data එක
+    }else if(http.readyState==4){
+        reject('error occured!'); // error එක pass කරන්න, data නෑ
+    }
+});
+    http.open('GET',url);  
+    http.send();
+});
+    
+}
+loadData('https://jsonplaceholder.typicode.com/comments').then((result)=>{
+    console.log(result);
+}).catch((error)=>{
+    console.log(error);
+});*/
+
+//-------Chainning Promise-> ex: 02----------
+let data;
+
+const loadData = (url)=>{
+    return new Promise((resolve,reject)=>{
+        const http = new XMLHttpRequest();
+    http.addEventListener('readystatechange', () => {
+    if (http.readyState==4 && http.status===200) {
+        resolve(JSON.parse(http.responseText)); // undefined = error නෑ, දෙවෙනියට data එක
+    }else if(http.readyState==4){
+        reject('error occured!'); // error එක pass කරන්න, data නෑ
+    }
+});
+    http.open('GET',url);  
+    http.send();
+});
+    
+}
+loadData('https://jsonplaceholder.typicode.com/comments').then((result)=>{
+    console.log(result);
+    loadData('https://jsonplaceholder.typicode.com/posts').then((result2)=>{
+        console.log(result2);
+    }).catch((error)=>{
+        console.log(error);
+    });
+}).catch((error)=>{
+    console.log(error);
 });
