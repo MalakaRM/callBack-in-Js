@@ -1,198 +1,76 @@
-/*// 1. සර්වර් එකත් එක්ක ගනුදෙනු කරන්න XMLHttpRequest object එකක් (පණිවිඩකරුවෙක්) හදාගන්නවා
-const http = new XMLHttpRequest();
+/*let name = 'Nimal';
+//console.log(name[1]); 
 
-// 2. පණිවිඩකරුගේ තත්ත්වය (State) වෙනස් වෙන හැම වෙලාවකම ක්‍රියාත්මක වෙන ඔත්තුකරුවෙක් (Listener) දානවා
-http.addEventListener('readystatechange', () => {
-    
-    // 3. readyState === 4 කියන්නේ සර්වර් එකෙන් ඩේටා ටික සම්පූර්ණයෙන්ම ලැබිලා ඉවරයි (DONE) කියන එකයි
-    // (සටහන: සර්වර් එක OK ද බලන්න http.status === 200 කෑල්ලත් මෙතනටම එකතු කරා නම් වඩාත් නිවැරදියි)
-    if (http.readyState === 4) {
-        
-        // 4. සර්වර් එකෙන් ලැබුණු response (text/json) ඩේටා ටික console එකේ පෙන්වනවා
-        console.log(http.responseText);
-    }
-});
+let name1 = 'B'; // This will not change the value of name because strings are immutable in JavaScript
+console.log(name); // Output: Nimal 
 
-// 5. කරන්න ඕන දේ (GET - ඩේටා ගන්න) සහ ඉල්ලන්න ඕන තැන (URL එක) දාලා ලියුම (Request එක) ලෑස්ති කරනවා
-http.open('GET', 'https://jsonplaceholder.typicode.com/comments');
-
-// 6. ලෑස්ති කරපු ලියුම ඇත්තටම සර්වර් එක වෙත පිටත් කරලා හරිනවා (Send කරනවා)
-http.send(); */
+//=====Immutable Strings in JavaScript===== 
+let x = name.replace('N', 'V'); // This will create a new string with the replaced value
+console.log(x); // Output: Vimal*/
 
 
-//==================================================================
-/*let data;
-const loadData = ()=>{
-    const http = new XMLHttpRequest();
-    http.addEventListener('readystatechange', () => {
-    if (http.readyState==4 && http.status===200) {
-        console.log(http.responseText);
-    }else if(http.readyState==4){
-        console.log('error occured!');
-    }
-});
-    http.open('GET', 'https://jsonplaceholder.typicode.com/comments');  
-    http.send();
+
+
+
+
+/*let story = 'java script hrima lesi';
+
+let pikedText = story.slice(0, 11); // This will extract the substring from index 0 to 10 (not including 10)
+console.log(pikedText); 
+
+let replacedText = story.replace('hrima', 'is'); // This will replace the first occurrence of 'hrima' with 'is'
+console.log(replacedText);
+
+let upperCaseText = story.toUpperCase(); // This will convert the entire string to uppercase
+console.log(upperCaseText);*/  
+
+
+/*-----ES6 Features-----*/
+
+//let & const are block-scoped variables introduced in ES6. They provide better scoping rules compared to var, which is function-scoped.
+/*let x = 10;
+let y = 20;
+
+if(true){
+    let x = 30; // This x is block-scoped and will not affect the outer x
+    let y = 40;
+    console.log(x); // Output: 30
+    console.log(y); // Output: 40
 }
+console.log(x); // Output: 10
+console.log(y); // Output: 20
 
-function checkResponse(){
-    console.log(data);
-}
+//Arrow functions are a concise way to write functions in ES6. They have a shorter syntax and do not have their own 'this' context.
+let calculateSum = (a, b) => a + b; // This is an arrow function that takes two parameters and returns their sum
+console.log(calculateSum(5, 10)); // Output: 15
 
-loadData();
-checkResponse();*/
+//Template literals are a new way to create strings in ES6. They allow for multi-line strings and string interpolation using backticks (`) and ${} syntax.
+let name = 'Nimal';
+let age = 25;
+let message = `My name is ${name} and I am ${age} years old.`;
+console.log(message); // Output: My name is Nimal and I am 25 years old. */
 
+  /*let age = 25;
+  let name = 'Nimal';
 
-//---------call back-> ex: 01-------
-/*let data;const loadData = (callback)=>{
-    const http = new XMLHttpRequest();
-    http.addEventListener('readystatechange', () => {
-    if (http.readyState==4 && http.status===200) {
-        data  = (http.responseText);
-        callback();
-    }else if(http.readyState==4){
-        console.log('error occured!');
+  let student={
+    age,
+    name,
+    printAge(){
+        console.log(`my age is ${age}`);
     }
-});
-    http.open('GET', 'https://jsonplaceholder.typicode.com/comments');  
-    
+  };
+  console.log(student.age); // Output: 25
+  console.log(student.name);
+  student.printAge(); // Output: my age is 25*/
+
+  //--classes--
+  class Student {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }   
 }
-
-function checkResponse(){
-    console.log(data);
-}
-
-loadData(checkResponse);
-console.log('after loadData()');*/
-
-//-------call back-> ex: 02----------
-/*let data;
-const loadData = (callback)=>{
-    const http = new XMLHttpRequest();
-    http.addEventListener('readystatechange', () => {
-    if (http.readyState==4 && http.status===200) {
-        callback(JSON.parse(http.responseText));
-    }else if(http.readyState==4){
-        console.log('error occured!');
-    }
-});
-    http.open('GET', 'https://jsonplaceholder.typicode.com/comments');  
-    http.send();
-    
-}
-
-const loadPosts = (callback)=>{
-    const http = new XMLHttpRequest();
-    http.addEventListener('readystatechange', () => {
-    if (http.readyState==4 && http.status===200) {
-        callback(JSON.parse(http.responseText));
-    }else if(http.readyState==4){
-        console.log('error occured!');
-    }
-});
-    http.open('GET', 'https://jsonplaceholder.typicode.com/posts');  
-    http.send();
-    
-}
-
-loadPosts((error,data)=>{
-    if(data){
-        console.log(data);
-    }else{
-        console.log(error);
-    }
-});
-
-loadData((error,data)=>{
-    if(data){
-        console.log(data);
-    }else{
-        console.log(error);
-    }
-});
-*/
-
-
-
-
-//-------call back hell-> ex: 03----------
-/*let data;
-
-const loadData = (url,callback)=>{
-    const http = new XMLHttpRequest();
-    http.addEventListener('readystatechange', () => {
-    if (http.readyState==4 && http.status===200) {
-        callback(undefined, JSON.parse(http.responseText)); // undefined = error නෑ, දෙවෙනියට data එක
-    }else if(http.readyState==4){
-        callback('error occured!', undefined); // error එක pass කරන්න, data නෑ
-    }
-});
-    http.open('GET',url);  
-    http.send();
-    
-}
-
-loadData('https://jsonplaceholder.typicode.com/comments',(error,data)=>{
-   console.log(data);
-
-   loadData('https://jsonplaceholder.typicode.com/posts',(error,data)=>{
-   console.log(data);
-    });
-});*/
-
-
-
-
-
-//-------Promise-> ex: 01----------
-/*let data;
-
-const loadData = (url)=>{
-    return new Promise((resolve,reject)=>{
-        const http = new XMLHttpRequest();
-    http.addEventListener('readystatechange', () => {
-    if (http.readyState==4 && http.status===200) {
-        resolve(JSON.parse(http.responseText)); // undefined = error නෑ, දෙවෙනියට data එක
-    }else if(http.readyState==4){
-        reject('error occured!'); // error එක pass කරන්න, data නෑ
-    }
-});
-    http.open('GET',url);  
-    http.send();
-});
-    
-}
-loadData('https://jsonplaceholder.typicode.com/comments').then((result)=>{
-    console.log(result);
-}).catch((error)=>{
-    console.log(error);
-});*/
-
-//-------Chainning Promise-> ex: 02----------
-let data;
-
-const loadData = (url)=>{
-    return new Promise((resolve,reject)=>{
-        const http = new XMLHttpRequest();
-    http.addEventListener('readystatechange', () => {
-    if (http.readyState==4 && http.status===200) {
-        resolve(JSON.parse(http.responseText)); // undefined = error නෑ, දෙවෙනියට data එක
-    }else if(http.readyState==4){
-        reject('error occured!'); // error එක pass කරන්න, data නෑ
-    }
-});
-    http.open('GET',url);  
-    http.send();
-});
-    
-}
-loadData('https://jsonplaceholder.typicode.com/comments').then((result)=>{
-    console.log(result);
-    loadData('https://jsonplaceholder.typicode.com/posts').then((result2)=>{
-        console.log(result2);
-    }).catch((error)=>{
-        console.log(error);
-    });
-}).catch((error)=>{
-    console.log(error);
-});
+let data = new Student('Nimal', 25);
+console.log(data.name); // Output: Nimal
+console.log(data.age); // Output: 25
