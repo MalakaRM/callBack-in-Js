@@ -34,3 +34,48 @@
   console.log(curDate.toDateString());
    console.log(curDate.getDate()+7);
    //mils->dif
+
+   //==========================================
+   //----Math Object---
+   console.log(Math.round(4.6));
+   console.log(Math.round(4.2));
+console.log('***************');
+     console.log(Math.ceil(4.6));
+     console.log(Math.ceil(4.2));
+     console.log('***************');
+        console.log(Math.floor(4.6));
+     console.log(Math.floor (4.2));
+
+
+     //==========================================
+     //-----regular expressions---
+     let message = 'hello world';
+     let pattern = /hello/;
+     console.log(pattern.test(message));
+
+     //--local storage & session storage---
+     //--expiration date-- 
+     let exDate = new Date();
+     exDate.setDate(exDate.getDate()+30);
+     let obj = {
+        val:'aljhdifhfhquofh',
+        expires:exDate
+     }
+   
+
+    //get data from local storage
+    localStorage.setItem('myData',JSON.stringify(obj));
+     localStorage.setItem('test','hello world');
+     let getobj = JSON.parse(localStorage.getItem('myData'));
+    console.log(getobj);
+
+    //--delete data from local storage--
+    localStorage.removeItem('myData');
+    console.log(localStorage.getItem('myData'));
+
+    //--remove all data from local storage--
+    localStorage.clear();
+    
+
+
+   
