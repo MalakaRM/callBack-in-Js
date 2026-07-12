@@ -4,8 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="main.js"></script>
+    <!-- කලින් CDN එක තිබිය යුතුයි -->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.6/js.cookie.min.js"></script>-->
+
+    <!--Legacy Way code-->
+<!--<form action="https://jsonplaceholder.typicode.com/posts">
+    <label for="PostTd">Post Id:</label>
+    <input type="number" id="PostTd" name="id" placeholder="Post Id" required>
+    <button type="submit">Load data</button>
+</form>-->
+
+ <!--using Ajax code -modern way-->
+  <!--<form id="formId">
+    id එක postId ලෙස නිවැරදි කර ඇත 
+    <label for="postId">Post Id:</label>
+    <input type="number" id="postId" name="id" placeholder="Post Id" required>-->
+    
+    <!-- id="btnId" එකතු කර ඇත
+    <button type="button" id="btnId">Load data</button>
+</form>   -->
+
+<!--<div id="box"></div>
+<button onclick="showAndHide()">show | Hide</button> -->
+
+<!--using jqury this code-->
+<div id="box"></div>
+<button id="btn">show | Hide</button> 
+
+<!-- JQuery file එක පහළින්ම link කර ඇත -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- JS file එක පහළින්ම link කර ඇත -->
+<script src="main.js"></script>
 </body>
 </html>

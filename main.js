@@ -30,7 +30,7 @@
   console.log(curDate.getSeconds());
   */
   //--operators--
-  const curDate = new Date();
+ /* const curDate = new Date();
   console.log(curDate.toDateString());
    console.log(curDate.getDate()+7);
    //mils->dif
@@ -75,7 +75,113 @@ console.log('***************');
 
     //--remove all data from local storage--
     localStorage.clear();
+
+    //--session storage--
+    //session storage is similar to local storage but it is cleared when the browser is closed
+    sessionStorage.setItem('sessionData','hello world');
+    //get data from session storage
+    let str = sessionStorage.getItem('sessionData');
+    let obj1 = JSON.parse(sessionStorage.getItem('sessionData'));
+    //--delete data from session storage--
+    sessionStorage.removeItem('sessionData');
+    //--remove all data from session storage--
+    sessionStorage.clear();*/
     
 
+// දින 7කින් expire වන කුකියක් සෑදීම/*
+//Cookies.set('username', 'John Doe', { expires: 7, path: '/' }); */
 
-   
+console.log('***********************************')
+
+//--Ajax(Asynchronous JavaScript and XML)--
+
+/*let btn = document.getElementById('btnId');
+
+btn.addEventListener('click', (event) => {
+    
+    // input field එකෙන් අගය (value) ලබා ගැනීම
+    let data = document.getElementById('postId');
+    let id = data.value; // මෙතනට input එකේ value එක ගන්න
+
+    //  XMLHttpRequest object එකක් create කරගන්න ඕනේ
+    const ajaxReq = new XMLHttpRequest();
+
+    // Request එක open කිරීම (URL එක අගට id එක එකතු කර ඇත)
+    ajaxReq.open('GET', `https://jsonplaceholder.typicode.com/comments?postId=${id}`);
+    
+    // Response එක ලැබුණාම ක්‍රියාත්මක වන කොටස (onload lowercase විය යුතුයි)
+    ajaxReq.onload = () => {
+        // ajaxReq එක කෙලින්ම සසඳන්න බැහැ, ajaxReq.status එකයි 200 ද බලන්න ඕනේ
+        if (ajaxReq.status === 200) {
+            console.log(ajaxReq.responseText);
+        } else {
+            console.log("Error: " + ajaxReq.status);
+        }
+    };
+    
+    // Request එක send කිරීම
+    ajaxReq.send(); 
+});*/
+
+/* this */
+/*console.log(this); // this refers to the global object (window in browsers) in the global scope 
+//===================================
+const student={
+  name:'John',
+  getMarks:function(){
+    let sayMarks = () => {
+      console.log(`Hello, ${this.name}`); // this refers to the student object
+    }
+    sayMarks();
+  }
+}*/
+//===================================
+
+
+/*let state=true;
+const showAndHide=()=>{
+  if(state){
+    document.getElementById('box').style.display='none';
+    //state=false;
+  }else{
+    document.getElementById('box').style.display='block';
+     //state=true;
+  }
+  state=!state;
+}*/
+
+/*let state=true;
+$('#btn').click(()=>{
+  if(state){
+    $('#box').hide(2000);
+  }else{
+     $('#box').show(2000);
+  }
+  state=!state;
+});*/
+
+/*let state=true;
+$('#btn').click(()=>{
+  if(state){
+    $('#box').fadeIn(2000);
+  }else{
+     $('#box').fadeOut(2000);
+  }
+  state=!state;
+});*/
+
+//--JQUERY 
+
+/*let state=true;
+
+$('#btn').click(()=>{
+ $('#box').toggle(2000);
+ });
+
+ $('#box').mouseenter(()=>{
+  // $('#box').toggle(2000);
+  // $('#box').text('dwdwd');
+  $(this).text('sdsd');
+ })*/
+
+  //css unath hit krnn puluwan jqury use krl
